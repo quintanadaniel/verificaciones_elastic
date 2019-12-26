@@ -1,5 +1,5 @@
 from elasticsearch import Elasticsearch
-import .doc_json
+from python.ver
 
 es = Elasticsearch()
 doc = doc_json
