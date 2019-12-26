@@ -1,5 +1,5 @@
 from elasticsearch import Elasticsearch
-import doc_json
+import .doc_json
 
 es = Elasticsearch()
 doc = doc_json
@@ -36,18 +36,17 @@ class Consultas():
     def consult_all_index(self):
         print("-----------------------------------------------------------------------------------")
         # se buscan todos lo que coincida
-        #self.retorna = int(retorna)
         res = es.search(index="test-index", body={"query": {"match_all":{}}})
         #print(res)
-        print("Got %d Hits:" % res['hits']['total']['value'])
+        #print("Got %d Hits:" % res['hits']['total']['value'])
         for hit in res['hits']['hits']:
             print("%(timestamp)s, %(autor)s, %(text)s, years: %(year)s " % hit["_source"])
-            print("existe el id: ", hit['_id'],type(hit['_id']))
+            #print("existe el id: ", hit['_id'],type(hit['_id']))
             if hit['_id'] == self:
                 return "s"
             #else:
-            #    return "n"
-            #    print("no existe el id en el index")
+            print("no existe el id en el index")
+            return "n"
             
     def consult_autor():
         print("-----------------------------------------------------------------------------------")
