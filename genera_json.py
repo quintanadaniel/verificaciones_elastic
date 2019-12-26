@@ -1,8 +1,8 @@
 from elasticsearch import Elasticsearch
-from python.ver
+from verfica_elastic import doc_json
 
 es = Elasticsearch()
-doc = doc_json
+doc = doc_json()
 
 def crea_index():
     res = es.index(index="test-index",doc_type='tweet',id=1,body=doc.doc0)
